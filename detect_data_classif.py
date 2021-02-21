@@ -1,6 +1,6 @@
 
 from DCNN_dataset_maker.models import *
-
+image_dataset_SSD = ImageFolder(path_in_ssd, transform=transform_SSD) # save the dataset
 i = 0 
 suppress=None
 
@@ -24,9 +24,9 @@ for i_image, (data, label) in enumerate(image_dataset_SSD):
                 
         if is_anime : 
             i+=1
-            print(image_dataset.imgs[i_image][0], is_anime)
+            #print(image_dataset.imgs[i_image][0], is_anime)
             shutil.copy(image_dataset.imgs[i_image][0], path_out_a)
         else:
-            print(image_dataset.imgs[i_image][0], is_anime)
-            shutil.copy(image_dataset.imgs[i_image][0], path_out_b)
+            #print(image_dataset.imgs[i_image][0], is_anime)
+            shutil.copy(image_dataset.imgs[i_image][0], path_out_ssd)
 print(i)
