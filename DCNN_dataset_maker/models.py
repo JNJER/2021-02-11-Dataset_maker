@@ -26,7 +26,6 @@ transform = transforms.Compose([
     )])
 
 image_dataset = ImageFolder(path_in, transform=transform) # save the dataset
-image_dataset_SSD = ImageFolder(path_in, transform=transform_SSD) # save the dataset
 
 # imports networks with weights
 models = {} # get model's names
@@ -43,10 +42,18 @@ model = checkpoint['model'].to(device).eval()
 
 #models['vgg16'] = torchvision.models.vgg16(pretrained=True)
 print("Loading pretrained torchvision's model..")
+
 models['alex'] = torchvision.models.alexnet(pretrained=True)
 models['vgg'] = torchvision.models.vgg16(pretrained=True)
 models['mob'] = torchvision.models.mobilenet_v2(pretrained=True)
 models['res'] = torchvision.models.resnext101_32x8d(pretrained=True)
+models['squeez'] = torchvision.models.squeezenet1_0(pretrained=True)
+models['densenet'] = torchvision.models.densenet161(pretrained=True)
+models['inception'] = torchvision.models.inception_v3(pretrained=True)
+models['googlenet'] = torchvision.models.googlenet(pretrained=True)
+models['shufflenet'] = torchvision.models.shufflenet_v2_x1_0(pretrained=True)
+models['mnasnet'] = torchvision.models.mnasnet1_0(pretrained=True)
+
 pprint("Loaded!")
 
 for name in models.keys():
